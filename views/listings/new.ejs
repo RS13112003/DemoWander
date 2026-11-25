@@ -1,0 +1,92 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>Create a New Listing</h3>
+            <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                
+                <div class="mb-3">      
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" 
+                    placeholder="Enter title" class="form-control"
+                    required>
+                    <div class="invalid-feedback">Title id required</div>
+                </div>
+                
+                <div class="mb-3">      
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Enter description" 
+                    class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please give a description</div>
+                </div>
+
+                <!-- <div class="mb-3">      
+                    <label for="image" class="form-label">Image Link</label>
+                    <input type="text" name="listing[image]" 
+                    placeholder="Enter image link/URL" class="form-control">
+                </div> -->
+
+                <div class="mb-3">      
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input type="file" name="listing[image]"
+                    class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">      
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" 
+                        placeholder="Enter price" class="form-control"
+                        required>
+                        <div class="invalid-feedback">Please give a price</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">      
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]"
+                        placeholder="Enter country" class="form-control"
+                        required>
+                        <div class="invalid-feedback">Enter country name</div>
+                    </div>
+                </div>
+                
+
+                <div class="mb-3">      
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" 
+                    placeholder="Enter location" class="form-control"
+                    required>
+                    <div class="invalid-feedback">Enter the location</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+
+                    <select name="listing[category]" id="category" class="form-select">
+
+                        <option value="" selected>Choose a category (optional)</option>
+
+                        <option value="Trending">Trending</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic-Cities">Iconic-Cities</option>
+                        <option value="Castle">Castle</option>
+                        <option value="Amazing Pools">Amazing Pools</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Countryside">Countryside</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Cabins">Cabins</option>
+                        <option value="Treehouses">Treehouses</option>
+                        <option value="Lakefront">Lakefront</option>
+                        <option value="Others">Others</option>
+
+                    </select>
+                </div>
+
+                <button class="btn btn-dark add-btn mb-3">Add</button>
+            </form>
+        </div>
+    </div>
+    
+</body>

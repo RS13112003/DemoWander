@@ -1,0 +1,148 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            
+            <h3>Edit your Listing</h3>
+    
+            <form method="post" action="/listings/<%= listing.id %>?_method=PUT"
+                novalidate class="needs-validation" enctype="multipart/form-data">
+                
+                <div class="mb-3">      
+                    <label for="title" class="form-label"></label>
+                    <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control"
+                    required>
+                    <div class="valid-feedback">Title Looks good</div>
+                </div>
+                
+                <div class="mb-3">      
+                    <label for="description" class="form-label"></label>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please give a description</div>
+                </div>
+
+                <!-- <div class="mb-3">      
+                    <label for="image" class="form-label"></label>
+                    <input type="text" name="listing[image]" 
+                    value="<%= listing.image %>" class="form-control" required>
+                    <div class="invalid-feedback">Give an image URL</div>
+                </div> -->
+
+                <div class="mb-3">
+                    Original Listing image
+                    <br>
+                    <img height="150" src="<%= originalImageUrl %>" alt="">
+                </div>
+
+                <div class="mb-3">      
+                    <label for="image" class="form-label">Upload new image</label>
+                    <input type="file" name="listing[image]" 
+                    value="<%= listing.image %>" class="form-control" >
+                    <div class="invalid-feedback">Give an image URL</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">      
+                        <label for="price" class="form-label"></label>
+                        <input  name="listing[price]" 
+                        value="<%= listing.price %>" class="form-control" required>
+                        <div class="invalid-feedback">Please give a price</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">      
+                        <label for="country" class="form-label"></label>
+                        <input type="text" name="listing[country]" 
+                        value="<%= listing.country %>" class="form-control" required>
+                        <div class="invalid-feedback">Enter country name</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">      
+                    <label for="location" class="form-label"></label>
+                    <input type="text" name="listing[location]" 
+                    value="<%= listing.location %>" class="form-control" required>
+                    <div class="invalid-feedback">Enter location</div>
+                </div>
+
+                
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+
+                    <select name="listing[category]" id="category" class="form-select">
+
+                        <option value="Trending"
+                            <%= (listing.category || "Others") === "Trending" ? "selected" : "" %>>
+                            Trending
+                        </option>
+
+                        <option value="Rooms"
+                            <%= (listing.category || "Others") === "Rooms" ? "selected" : "" %>>
+                            Rooms
+                        </option>
+
+                        <option value="Iconic-Cities"
+                            <%= (listing.category || "Others") === "Iconic-Cities" ? "selected" : "" %>>
+                            Iconic-Cities
+                        </option>
+
+                        <option value="Castle"
+                            <%= (listing.category || "Others") === "Castle" ? "selected" : "" %>>
+                            Castle
+                        </option>
+
+                        <option value="Amazing Pools"
+                            <%= (listing.category || "Others") === "Amazing Pools" ? "selected" : "" %>>
+                            Amazing Pools
+                        </option>
+
+                        <option value="Camping"
+                            <%= (listing.category || "Others") === "Camping" ? "selected" : "" %>>
+                            Camping
+                        </option>
+
+                        <option value="Countryside"
+                            <%= (listing.category || "Others") === "Countryside" ? "selected" : "" %>>
+                            Countryside
+                        </option>
+
+                        <option value="Beach"
+                            <%= (listing.category || "Others") === "Beach" ? "selected" : "" %>>
+                            Beach
+                        </option>
+
+                        <option value="Arctic"
+                            <%= (listing.category || "Others") === "Arctic" ? "selected" : "" %>>
+                            Arctic
+                        </option>
+
+                        <option value="Cabins"
+                            <%= (listing.category || "Others") === "Cabins" ? "selected" : "" %>>
+                            Cabins
+                        </option>
+
+                        <option value="Treehouses"
+                            <%= (listing.category || "Others") === "Treehouses" ? "selected" : "" %>>
+                            Treehouses
+                        </option>
+
+                        <option value="Lakefront"
+                            <%= (listing.category || "Others") === "Lakefront" ? "selected" : "" %>>
+                            Lakefront
+                        </option>
+
+                        <option value="Others"
+                            <%= (listing.category || "Others") === "Others" ? "selected" : "" %>>
+                            Others
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <button class="btn btn-dark add-btn mb-3">Edit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>

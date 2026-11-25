@@ -1,0 +1,14 @@
+1.
+username : demo
+password : op
+
+2.
+username : demo2
+password : po
+
+3.
+username : demo3
+password : demo
+
+4.
+npm install cloudinary@^1.41.0 multer-storage-cloudinary
